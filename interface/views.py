@@ -3,10 +3,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 
 # Create your views here.
+
+
 def home(request):
-	return HttpResponse('HOME')
+    template = loader.get_template('home.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))
+
 
 def login(request):
-	template = loader.get_template('login.html')
-	context = RequestContext(request,{'aluno':'Erivaldo'})
-	return HttpResponse(template.render(context))
+    template = loader.get_template('login.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))
