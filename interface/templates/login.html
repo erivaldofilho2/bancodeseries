@@ -1,15 +1,32 @@
-
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static "lib/bootstrap/css/bootstrap.min.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "lib/font-awesome-4.5.0/css/font-awesome.min.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/estilo.css" %}">
 </head>
 <body>
-	<h1>LOGIN</h1>
-	<table>
-		<tr>
-			<th>{{aluno}}</th>
-		</tr>
-	</table>
+{% include "header.html"%}
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" action="/usuario">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email " required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Esqueceu a senha?
+
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
 </body>
 </html>
